@@ -1,20 +1,13 @@
 'use strict';
 
 var AlertView = {
-  show: function(title, message, buttonTitles, buttonHandler) {
+  show: function(title, message, primaryButton, secondaryButton, buttonHandler) {
     var $alertViewElement = $('<div class="alert-view"/>');
     var $titleElement = $('<h1>' + title + '</h1>').appendTo($alertViewElement);
     var $messageElement = $('<p>' + message + '</p>').appendTo($alertViewElement);
-    var buttonWidth = (278 / buttonTitles.length) - 20;
-    var $buttonElement;
-    
-    for (var i = 0, length = buttonTitles.length; i < length; i++) {
-      if (i === length - 1) {
-        $buttonElement = $('<a class="alert-button-primary" data-button-index="' + i + '" style="width: ' + buttonWidth + 'px;" href="#">' + buttonTitles[i] + '</a>').appendTo($alertViewElement);
-      } else {
-        $buttonElement = $('<a class="alert-button" data-button-index="' + i + '" style="width: ' + buttonWidth + 'px;" href="#">' + buttonTitles[i] + '</a>').appendTo($alertViewElement);
-      }
-    }
+
+    if (secondaryButton) $('<a class="alert-button" data-button-index="1" href="#">' + secondaryButton + '</a>').appendTo($alertViewElement);
+    $('<a class="alert-button-primary' + (!secondaryButton ? ' alert-button-single' : '') + '" data-button-index="0" href="#">' + primaryButton + '</a>').appendTo($alertViewElement);
     
     $(document.body).append($alertViewElement);
     
