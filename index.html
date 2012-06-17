@@ -9,22 +9,25 @@
 	<script type="text/javascript" src="alertview.js"></script>
 	<script type="text/javascript">
   	$(function() {
-      AlertView.show('Hello', 'This is an AlertView!', ['Cancel', 'Ok'], function(index) {
-        switch (index) {
-          case 0:
-            console.log('Cancel was clicked!');
-            break;
-          case 1:
-            console.log('Ok was clicked!');
-            break;
-          default:
-            break;
-        }
+  	  $('#show-popup-link').bind('click', function(evt) {
+  	    evt.preventDefault();
+        AlertView.show('Hello', 'This is an AlertView!', 'Ok', 'Cancel', function(index) {
+          switch (index) {
+            case 0:
+              console.log('Primary was clicked!');
+              break;
+            case 1:
+              console.log('Secondary was clicked!');
+              break;
+            default:
+              break;
+          }
+        });
       });
     });
 	</script>
 </head>
 <body>
-  
+  <a id="show-popup-link" href="#">Show Popup</a>
 </body>
 </html>
