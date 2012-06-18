@@ -6,8 +6,8 @@ var AlertView = {
     var $titleElement = $('<h1>' + title + '</h1>').appendTo($alertViewElement);
     var $messageElement = $('<p>' + message + '</p>').appendTo($alertViewElement);
 
-    if (secondaryButton) $('<a class="alert-button" data-button-index="1" href="#">' + secondaryButton + '</a>').appendTo($alertViewElement);
-    $('<a class="alert-button alert-button-primary' + (!secondaryButton ? ' alert-button-single' : '') + '" data-button-index="0" href="#">' + primaryButton + '</a>').appendTo($alertViewElement);
+    if (secondaryButton) $('<a data-button-index="1" href="#">' + secondaryButton + '</a>').appendTo($alertViewElement);
+    $('<a class="alert-button-primary' + (!secondaryButton ? ' alert-button-single' : '') + '" data-button-index="0" href="#">' + primaryButton + '</a>').appendTo($alertViewElement);
     
     $(document.body).append($alertViewElement);
     
