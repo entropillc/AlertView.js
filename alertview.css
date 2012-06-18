@@ -45,7 +45,7 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-.alert-button, .alert-button-primary {
+.alert-button {
   color: #fff;
   text-decoration: none;
   line-height: 1.5em;
@@ -73,6 +73,10 @@
   background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(153,160,180,1) 2%,rgba(153,160,180,1) 3%,rgba(78,91,125,1) 50%,rgba(50,65,105,1) 51%,rgba(55,62,104,1) 100%); /* IE10+ */
   background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(153,160,180,1) 2%,rgba(153,160,180,1) 3%,rgba(78,91,125,1) 50%,rgba(50,65,105,1) 51%,rgba(55,62,104,1) 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#373e68',GradientType=0 ); /* IE6-9 */  
+}
+
+.alert-button:hover {
+  color: #fff;
 }
 
 .alert-button-primary {
