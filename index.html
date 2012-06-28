@@ -11,7 +11,7 @@
   	$(function() {
   	  $('#show-popup-link').bind('click', function(evt) {
   	    evt.preventDefault();
-        AlertView.show('Hello', 'This is an AlertView!', 'Ok', 'Cancel', function(index) {
+        AlertView.show('Hello', 'This is an AlertView!', 'OK', 'Cancel', function(index) {
           switch (index) {
             case 0:
               console.log('Primary was clicked!');
