@@ -7,7 +7,7 @@ $(function() {
   
   window.AlertView = {
     show: function(title, message, primaryButton, secondaryButton, buttonHandler) {
-      var $alertViewElement = $('<div class="alert-view"/>');
+      var $alertViewElement = $('<div class="alert-view animated bounceIn"/>');
       var $titleElement = $('<h1>' + title + '</h1>').appendTo($alertViewElement);
       var $messageElement = $('<p>' + message + '</p>').appendTo($alertViewElement);
 
@@ -16,15 +16,6 @@ $(function() {
     
       // Add the alertViewElement just before the backdrop
       $alertViewBackdrop.before($alertViewElement);
-      // Listen for the transition end event
-      var i = 2;
-      $alertViewElement.bind('webkitTransitionEnd transitionend MSTransitionEnd oTransitionEnd transitionEnd', function() {
-        $alertViewElement.addClass('av-zoom-' + i++);
-      });
-      
-      // Call offset() to force a redraw before adding the av-zoom class
-      $alertViewElement.offset();
-      $alertViewElement.addClass('av-zoom-1');
       
       $alertViewElement.delegate('a', 'click', function(evt) {
         evt.preventDefault();
