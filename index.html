@@ -9,18 +9,59 @@
 	<script type="text/javascript" src="alertview.js"></script>
 	<script type="text/javascript">
   	$(function() {
-  	  $('#show-popup-link').bind('click', function(evt) {
-  	    evt.preventDefault();
-        AlertView.show('Hello', 'This is an AlertView!', 'OK', 'Cancel', function(index) {
-          switch (index) {
-            case 0:
-              console.log('Primary was clicked!');
-              break;
-            case 1:
-              console.log('Secondary was clicked!');
-              break;
-            default:
-              break;
+      $('#show-popup-link-1').bind('click', function(evt) {
+        evt.preventDefault();
+        AlertView.show({
+          title: 'Hello', 
+          message: 'This is an AlertView!', 
+          buttons: ['OK'],
+          callback: function(index) {
+            console.log('Button was clicked!');
+          }
+        });
+      });
+
+      $('#show-popup-link-2').bind('click', function(evt) {
+        evt.preventDefault();
+        AlertView.show({
+          title: 'Hello', 
+          message: 'This is an AlertView!', 
+          buttons: ['OK', 'Cancel'],
+          callback: function(index) {
+            switch (index) {
+              case 0:
+                console.log('Ok was clicked!');
+                break;
+              case 1:
+                console.log('Cancel was clicked!');
+                break;
+              default:
+                break;
+            }
+          }
+        });
+      });
+
+      $('#show-popup-link-3').bind('click', function(evt) {
+        evt.preventDefault();
+        AlertView.show({
+          title: 'Hello', 
+          message: 'This is an AlertView!', 
+          buttons: ['Button 1', 'Button 2', 'Cancel'],
+          callback: function(index) {
+            switch (index) {
+              case 0:
+                console.log('Button 1 was clicked!');
+                break;
+              case 1:
+                console.log('Button 2 was clicked!');
+                break;
+              case 2:
+                console.log('Cancel was clicked!');
+                break;
+              default:
+                break;
+            }
           }
         });
       });
@@ -28,6 +69,8 @@
 	</script>
 </head>
 <body>
-  <a id="show-popup-link" href="#">Show Popup</a>
+  <a id="show-popup-link-1" href="#">Show popup with one button</a><br>
+  <a id="show-popup-link-2" href="#">Show popup with two buttons</a><br>
+  <a id="show-popup-link-3" href="#">Show popup with three buttons</a>
 </body>
 </html>
