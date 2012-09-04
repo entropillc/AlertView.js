@@ -32,15 +32,15 @@ $(function() {
         }
       }
 
-      if (callback && typeof callback === 'function') {
-        $alertViewElement.delegate('a', 'click', function(evt) {
-          evt.preventDefault();
-        
+      $alertViewElement.delegate('a', 'click', function(evt) {
+        evt.preventDefault();
+
+        if (callback && typeof callback === 'function') {
           callback(parseInt($(this).attr('data-button-index'), 10));
+        }
         
-          $alertViewElement.remove();
-        });
-      }
+        $alertViewElement.remove();
+      });
 
       // Add the alertViewElement just before the backdrop
       $alertViewBackdrop.before($alertViewElement);
